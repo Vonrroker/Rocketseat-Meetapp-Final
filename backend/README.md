@@ -1,3 +1,0 @@
-# Backend
-
-  - Instrucões de funcionamento:

@@ -64,7 +64,6 @@ function Dashboard({ isFocused }) {
   }, [isFocused, date]);
 
   async function handleSubscribe(id) {
-    console.tron.log('teste entrou');
     dispatch(meetupSubscribeRequest(id));
   }
 
@@ -116,14 +115,14 @@ function Dashboard({ isFocused }) {
             )}
           />
         ) : (
-          <View
-            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-          >
-            <Text style={{ color: '#fff', fontSize: 20 }}>
-              Sem meetups nessa data.
+            <View
+              style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+            >
+              <Text style={{ color: '#fff', fontSize: 20 }}>
+                Sem meetups nessa data.
             </Text>
-          </View>
-        )}
+            </View>
+          )}
       </Container>
     </Background>
   );

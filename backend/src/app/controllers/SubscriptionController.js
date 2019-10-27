@@ -1,11 +1,12 @@
-import { isBefore, format } from 'date-fns';
-import pt from 'date-fns/locale/pt';
+import { isBefore } from 'date-fns';
 import { Op } from 'sequelize';
 import Subscription from '../models/Subscription';
 import Meetup from '../models/Meetup';
-import Mail from '../../lib/Mail';
 import User from '../models/User';
 import File from '../models/File';
+
+import Queue from '../../lib/Queue';
+import SubscriptionMail from '../jobs/SubscriptionMail';
 
 class SubscriptionController {
   async index(req, res) {
@@ -107,20 +108,7 @@ class SubscriptionController {
       ],
     });
 
-    await Mail.sendMail({
-      to: `${meetup.user.name} <${meetup.user.email}>`,
-      subject: 'Aviso de Inscrição em meetup',
-      template: 'subscribe',
-      context: {
-        user_owner: meetup.user.name,
-        user_sub: subscription.user.name,
-        email_sub: subscription.user.email,
-        locale_meetup: meetup.locale,
-        date_meetup: format(meetup.date, "dd 'de' MMMM', às' HH:mm'h'", {
-          locale: pt,
-        }),
-      },
-    });
+    await Queue.add(SubscriptionMail.key, { meetup, subscription });
 
     return res.json({ subscription });
   }

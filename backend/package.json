@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "sucrase-node src/server.js",
+    "queue": "nodemon src/queue.js",
     "debug": "node --inspect -r sucrase/register src/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bee-queue": "^1.2.2",
     "cors": "^2.8.5",
     "date-fns": "^2.0.0-beta.2",
     "dotenv": "^8.0.0",
