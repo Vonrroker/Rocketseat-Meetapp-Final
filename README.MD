@@ -23,6 +23,12 @@ Antes de iniciar a aplicação pela primeira vez execute o comando abaixo em cad
   yarn
   ```
 
+No Backend execute o comando abaixo para iniciar a fila de envio de emails:
+
+```
+yarn queue
+```
+
 Para o Backend e Frontend, basta entrar nas suas respectivas pastas e executar o comando abaixo:
 
 ```
