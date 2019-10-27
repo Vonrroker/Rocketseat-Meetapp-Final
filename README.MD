@@ -10,11 +10,11 @@ A parte mobile deste projeto não foi testado para IOS, somente apara Android.
 
 ## Pré requisitos
 
-Esse projeto foi desenvolvido usando banco de dados com PostgreSQL e o serviço de testes de envio de emails do https://mailtrap.io/.
+Esse projeto foi desenvolvido usando banco de dados com PostgreSQL, Redis e o serviço de testes de envio de emails do https://mailtrap.io/.
 
 ### Arquivo .env
 
-O backend possui um arquivo ".env.example", que devem ser renomeado para .env e utilizado como arquivo de configuração para as variáveis de ambiente, como conexão com o banco de dados Postgres e o mailtrap.io, caminho da chamada http, etc.
+O backend possui um arquivo ".env.example", que devem ser renomeado para .env e utilizado como arquivo de configuração para as variáveis de ambiente, como conexão com o banco de dados Postgres, Redis e o mailtrap.io, caminho da chamada http, etc.
 
 ### Execução
 
